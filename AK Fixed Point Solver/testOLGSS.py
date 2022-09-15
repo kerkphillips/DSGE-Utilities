@@ -115,14 +115,14 @@ bet = bet**(100./S)
 delta = 1. - (1. - delta)**(100./S)
 # set paramters to pass to updatebar
 UPparams = (sig, chin, chib, b, ups, bet, S, printcheck)
-wbar = 1
-rbar = .02
+wbar = 1.2276011
+rbar = 0.0165116
 # set parameters to pass to findc1 in fsolve
 HHparams = (wbar, rbar, sig, chin, chib, b, ups, bet, S, printcheck)
 # set initial guess for wbar and rbar
 bar = np.array([wbar, rbar])
 
-bar = AKsolve(bar, updatebar, UPparams, ccrit, conv, maxiter, shrinkon, \
+bar, dist, count = AKsolve(bar, updatebar, UPparams, ccrit, conv, maxiter, shrinkon, \
     shrink, expandon, expand, disttype, display)
         
 # recover wbar and rbar and print
